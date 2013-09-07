@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from VideoLibraryService WSDL service -->
+
+  <service name="VideoLibrary" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://services"/>
+      <parameter name="wsdlServiceElement" value="VideoLibraryService"/>
+      <parameter name="schemaQualified" value="http://services,http://beans"/>
+      <parameter name="wsdlServicePort" value="VideoLibrary"/>
+      <parameter name="className" value="services.VideoLibrary"/>
+      <parameter name="wsdlPortType" value="VideoLibrary"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateCustomer" qname="operNS:updateCustomer" returnQName="retNS:updateCustomerReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://beans" qname="pns:customer" type="tns:Customer"/>
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="createSimpleCustomer" qname="operNS:createSimpleCustomer" returnQName="retNS:createSimpleCustomerReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://beans" qname="pns:customer" type="tns:Customer"/>
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://beans" name="getMovieCustInfo" qname="operNS:getMovieCustInfo" returnQName="retNS:getMovieCustInfoReturn" returnType="rtns:Customer" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:movieId" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="deleteCustomer" qname="operNS:deleteCustomer" returnQName="retNS:deleteCustomerReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://beans" qname="pns:customer" type="tns:Customer"/>
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateMovieInfo" qname="operNS:updateMovieInfo" returnQName="retNS:updateMovieInfoReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://beans" qname="pns:m" type="tns:Movie"/>
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://beans" name="displayMemberInfo" qname="operNS:displayMemberInfo" returnQName="retNS:displayMemberInfoReturn" returnType="rtns:Movie" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:membership_id" type="tns:long"/>
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://beans" name="listAllCustomers" qname="operNS:listAllCustomers" returnQName="retNS:listAllCustomersReturn" returnType="rtns:Customer" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://beans" name="listCustomers" qname="operNS:listCustomers" returnQName="retNS:listCustomersReturn" returnType="rtns:Customer" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:isPremium" type="tns:boolean"/>
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://beans" name="searchCustomer" qname="operNS:searchCustomer" returnQName="retNS:searchCustomerReturn" returnType="rtns:Customer" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://beans" qname="pns:customer" type="tns:Customer"/>
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="createPremiumCustomer" qname="operNS:createPremiumCustomer" returnQName="retNS:createPremiumCustomerReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://beans" qname="pns:customer" type="tns:Customer"/>
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://beans" name="searchMovie" qname="operNS:searchMovie" returnQName="retNS:searchMovieReturn" returnType="rtns:Movie" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://beans" qname="pns:movie" type="tns:Movie"/>
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="issueMovie" qname="operNS:issueMovie" returnQName="retNS:issueMovieReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:userId" type="tns:long"/>
+        <parameter xmlns:pns="http://services" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:movieId" type="tns:long"/>
+        <parameter xmlns:pns="http://services" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:fname" type="tns:string"/>
+        <parameter xmlns:pns="http://services" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:lname" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="createMovie" qname="operNS:createMovie" returnQName="retNS:createMovieReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://beans" qname="pns:m" type="tns:Movie"/>
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="returnMovie" qname="operNS:returnMovie" returnQName="retNS:returnMovieReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://beans" qname="pns:customer" type="tns:Customer"/>
+        <parameter xmlns:pns="http://services" xmlns:tns="http://beans" qname="pns:movie" type="tns:Movie"/>
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://beans" name="generateBill" qname="operNS:generateBill" returnQName="retNS:generateBillReturn" returnType="rtns:Bill" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://beans" qname="pns:customer" type="tns:Customer"/>
+        <parameter xmlns:pns="http://services" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:isFinalBill" type="tns:boolean"/>
+      </operation>
+      <operation xmlns:operNS="http://services" xmlns:retNS="http://services" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="deleteMovie" qname="operNS:deleteMovie" returnQName="retNS:deleteMovieReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://services" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:movieId" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="generateBill listAllCustomers issueMovie updateMovieInfo getMovieCustInfo searchMovie updateCustomer returnMovie createPremiumCustomer listCustomers createMovie createSimpleCustomer searchCustomer displayMemberInfo deleteCustomer deleteMovie"/>
+
+      <typeMapping xmlns:ns="http://beans" qname="ns:Movie" type="java:beans.Movie" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <arrayMapping xmlns:ns="http://services" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema" qname="ns:ArrayOf_xsd_string" type="java:java.lang.String[]" innerType="cmp-ns:string" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://beans" qname="ns:Customer" type="java:beans.Customer" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://beans" qname="ns:Bill" type="java:beans.Bill" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

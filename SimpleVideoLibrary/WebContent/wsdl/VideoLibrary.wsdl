@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://services" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://services" xmlns:intf="http://services" xmlns:tns1="http://beans" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://services" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://beans"/>
+   <element name="updateCustomer">
+    <complexType>
+     <sequence>
+      <element name="customer" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateCustomerResponse">
+    <complexType>
+     <sequence>
+      <element name="updateCustomerReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createSimpleCustomer">
+    <complexType>
+     <sequence>
+      <element name="customer" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createSimpleCustomerResponse">
+    <complexType>
+     <sequence>
+      <element name="createSimpleCustomerReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMovieCustInfo">
+    <complexType>
+     <sequence>
+      <element name="movieId" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMovieCustInfoResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getMovieCustInfoReturn" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteCustomer">
+    <complexType>
+     <sequence>
+      <element name="customer" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteCustomerResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteCustomerReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateMovieInfo">
+    <complexType>
+     <sequence>
+      <element name="m" type="tns1:Movie"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateMovieInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="updateMovieInfoReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="displayMemberInfo">
+    <complexType>
+     <sequence>
+      <element name="membership_id" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="displayMemberInfoResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="displayMemberInfoReturn" type="tns1:Movie"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listAllCustomers">
+    <complexType/>
+   </element>
+   <element name="listAllCustomersResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="listAllCustomersReturn" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listCustomers">
+    <complexType>
+     <sequence>
+      <element name="isPremium" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="listCustomersResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="listCustomersReturn" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchCustomer">
+    <complexType>
+     <sequence>
+      <element name="customer" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchCustomerResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="searchCustomerReturn" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createPremiumCustomer">
+    <complexType>
+     <sequence>
+      <element name="customer" type="tns1:Customer"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createPremiumCustomerResponse">
+    <complexType>
+     <sequence>
+      <element name="createPremiumCustomerReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchMovie">
+    <complexType>
+     <sequence>
+      <element name="movie" type="tns1:Movie"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchMovieResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="searchMovieReturn" type="tns1:Movie"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="issueMovie">
+    <complexType>
+     <sequence>
+      <element name="userId" type="xsd:long"/>
+      <element name="movieId" type="xsd:long"/>
+      <element name="fname" type="xsd:string"/>
+      <element name="lname" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="issueMovieResponse">
+    <complexType>
+     <sequence>
+      <element name="issueMovieReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createMovie">
+    <complexType>
+     <sequence>
+      <element name="m" type="tns1:Movie"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createMovieResponse">
+    <complexType>
+     <sequence>
+      <element name="createMovieReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="returnMovie">
+    <complexType>
+     <sequence>
+      <element name="customer" type="tns1:Customer"/>
+      <element name="movie" type="tns1:Movie"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="returnMovieResponse">
+    <complexType>
+     <sequence>
+      <element name="returnMovieReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="generateBill">
+    <complexType>
+     <sequence>
+      <element name="customer" type="tns1:Customer"/>
+      <element name="isFinalBill" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="generateBillResponse">
+    <complexType>
+     <sequence>
+      <element name="generateBillReturn" type="tns1:Bill"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_string">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="deleteMovie">
+    <complexType>
+     <sequence>
+      <element name="movieId" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteMovieResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteMovieReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://beans" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://services"/>
+   <complexType name="Customer">
+    <sequence>
+     <element name="address" nillable="true" type="xsd:string"/>
+     <element name="city" nillable="true" type="xsd:string"/>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="fname" nillable="true" type="xsd:string"/>
+     <element name="lname" nillable="true" type="xsd:string"/>
+     <element name="membership_id" nillable="true" type="xsd:long"/>
+     <element name="outstanding" nillable="true" type="xsd:int"/>
+     <element name="password" nillable="true" type="xsd:string"/>
+     <element name="premium" nillable="true" type="xsd:boolean"/>
+     <element name="ssn" nillable="true" type="xsd:long"/>
+     <element name="state" nillable="true" type="xsd:string"/>
+     <element name="zipCode" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Movie">
+    <sequence>
+     <element name="availableCopies" nillable="true" type="xsd:int"/>
+     <element name="category" nillable="true" type="xsd:string"/>
+     <element name="dueDate" nillable="true" type="xsd:string"/>
+     <element name="issuedDate" nillable="true" type="xsd:string"/>
+     <element name="movieBanner" nillable="true" type="xsd:string"/>
+     <element name="movieId" nillable="true" type="xsd:int"/>
+     <element name="movieName" nillable="true" type="xsd:string"/>
+     <element name="releaseDate" nillable="true" type="xsd:string"/>
+     <element name="rentAmt" nillable="true" type="xsd:float"/>
+    </sequence>
+   </complexType>
+   <complexType name="Bill">
+    <sequence>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="fine" nillable="true" type="xsd:int"/>
+     <element name="fname" nillable="true" type="xsd:string"/>
+     <element name="lname" nillable="true" type="xsd:string"/>
+     <element name="membership_Id" type="xsd:long"/>
+     <element name="movieNames" nillable="true" type="impl:ArrayOf_xsd_string"/>
+     <element name="outstanding" nillable="true" type="xsd:int"/>
+     <element name="premium" type="xsd:boolean"/>
+     <element name="totalFee" nillable="true" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getMovieCustInfoResponse">
+
+      <wsdl:part element="impl:getMovieCustInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createPremiumCustomerRequest">
+
+      <wsdl:part element="impl:createPremiumCustomer" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAllCustomersRequest">
+
+      <wsdl:part element="impl:listAllCustomers" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="issueMovieRequest">
+
+      <wsdl:part element="impl:issueMovie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="returnMovieResponse">
+
+      <wsdl:part element="impl:returnMovieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listCustomersResponse">
+
+      <wsdl:part element="impl:listCustomersResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createSimpleCustomerRequest">
+
+      <wsdl:part element="impl:createSimpleCustomer" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateCustomerRequest">
+
+      <wsdl:part element="impl:updateCustomer" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="generateBillResponse">
+
+      <wsdl:part element="impl:generateBillResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="returnMovieRequest">
+
+      <wsdl:part element="impl:returnMovie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateCustomerResponse">
+
+      <wsdl:part element="impl:updateCustomerResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchMovieResponse">
+
+      <wsdl:part element="impl:searchMovieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAllCustomersResponse">
+
+      <wsdl:part element="impl:listAllCustomersResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createPremiumCustomerResponse">
+
+      <wsdl:part element="impl:createPremiumCustomerResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createMovieResponse">
+
+      <wsdl:part element="impl:createMovieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteMovieRequest">
+
+      <wsdl:part element="impl:deleteMovie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createMovieRequest">
+
+      <wsdl:part element="impl:createMovie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="issueMovieResponse">
+
+      <wsdl:part element="impl:issueMovieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="generateBillRequest">
+
+      <wsdl:part element="impl:generateBill" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteMovieResponse">
+
+      <wsdl:part element="impl:deleteMovieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateMovieInfoResponse">
+
+      <wsdl:part element="impl:updateMovieInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createSimpleCustomerResponse">
+
+      <wsdl:part element="impl:createSimpleCustomerResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listCustomersRequest">
+
+      <wsdl:part element="impl:listCustomers" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteCustomerResponse">
+
+      <wsdl:part element="impl:deleteCustomerResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchCustomerResponse">
+
+      <wsdl:part element="impl:searchCustomerResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchCustomerRequest">
+
+      <wsdl:part element="impl:searchCustomer" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="displayMemberInfoRequest">
+
+      <wsdl:part element="impl:displayMemberInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateMovieInfoRequest">
+
+      <wsdl:part element="impl:updateMovieInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="displayMemberInfoResponse">
+
+      <wsdl:part element="impl:displayMemberInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMovieCustInfoRequest">
+
+      <wsdl:part element="impl:getMovieCustInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchMovieRequest">
+
+      <wsdl:part element="impl:searchMovie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteCustomerRequest">
+
+      <wsdl:part element="impl:deleteCustomer" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="VideoLibrary">
+
+      <wsdl:operation name="updateCustomer">
+
+         <wsdl:input message="impl:updateCustomerRequest" name="updateCustomerRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateCustomerResponse" name="updateCustomerResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createSimpleCustomer">
+
+         <wsdl:input message="impl:createSimpleCustomerRequest" name="createSimpleCustomerRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createSimpleCustomerResponse" name="createSimpleCustomerResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMovieCustInfo">
+
+         <wsdl:input message="impl:getMovieCustInfoRequest" name="getMovieCustInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMovieCustInfoResponse" name="getMovieCustInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCustomer">
+
+         <wsdl:input message="impl:deleteCustomerRequest" name="deleteCustomerRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteCustomerResponse" name="deleteCustomerResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateMovieInfo">
+
+         <wsdl:input message="impl:updateMovieInfoRequest" name="updateMovieInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateMovieInfoResponse" name="updateMovieInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="displayMemberInfo">
+
+         <wsdl:input message="impl:displayMemberInfoRequest" name="displayMemberInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:displayMemberInfoResponse" name="displayMemberInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAllCustomers">
+
+         <wsdl:input message="impl:listAllCustomersRequest" name="listAllCustomersRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listAllCustomersResponse" name="listAllCustomersResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listCustomers">
+
+         <wsdl:input message="impl:listCustomersRequest" name="listCustomersRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listCustomersResponse" name="listCustomersResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchCustomer">
+
+         <wsdl:input message="impl:searchCustomerRequest" name="searchCustomerRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchCustomerResponse" name="searchCustomerResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createPremiumCustomer">
+
+         <wsdl:input message="impl:createPremiumCustomerRequest" name="createPremiumCustomerRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createPremiumCustomerResponse" name="createPremiumCustomerResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchMovie">
+
+         <wsdl:input message="impl:searchMovieRequest" name="searchMovieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchMovieResponse" name="searchMovieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="issueMovie">
+
+         <wsdl:input message="impl:issueMovieRequest" name="issueMovieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:issueMovieResponse" name="issueMovieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createMovie">
+
+         <wsdl:input message="impl:createMovieRequest" name="createMovieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createMovieResponse" name="createMovieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="returnMovie">
+
+         <wsdl:input message="impl:returnMovieRequest" name="returnMovieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:returnMovieResponse" name="returnMovieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="generateBill">
+
+         <wsdl:input message="impl:generateBillRequest" name="generateBillRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:generateBillResponse" name="generateBillResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteMovie">
+
+         <wsdl:input message="impl:deleteMovieRequest" name="deleteMovieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteMovieResponse" name="deleteMovieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="VideoLibrarySoapBinding" type="impl:VideoLibrary">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="updateCustomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateCustomerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateCustomerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createSimpleCustomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createSimpleCustomerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createSimpleCustomerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMovieCustInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMovieCustInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMovieCustInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCustomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteCustomerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteCustomerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateMovieInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateMovieInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateMovieInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="displayMemberInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="displayMemberInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="displayMemberInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listAllCustomers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listAllCustomersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listAllCustomersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listCustomers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listCustomersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listCustomersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchCustomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchCustomerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchCustomerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createPremiumCustomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createPremiumCustomerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createPremiumCustomerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchMovie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchMovieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchMovieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="issueMovie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="issueMovieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="issueMovieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createMovie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createMovieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createMovieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="returnMovie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="returnMovieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="returnMovieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="generateBill">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="generateBillRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="generateBillResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteMovie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteMovieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteMovieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="VideoLibraryService">
+
+      <wsdl:port binding="impl:VideoLibrarySoapBinding" name="VideoLibrary">
+
+         <wsdlsoap:address location="http://localhost:8080/SimpleVideoLibrary/services/VideoLibrary"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
